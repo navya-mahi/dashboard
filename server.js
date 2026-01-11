@@ -19,5 +19,6 @@ app.get("/dashboard/*", (_, res) => {
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`\n🚀 Server running!`);
+  console.log(`\n📊 Dashboard: http://localhost:${port}/dashboard\n`);
 });
