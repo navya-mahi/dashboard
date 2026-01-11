@@ -1111,6 +1111,33 @@
       </div>
     </div>
   </div>
-  
+
+  <script>
+    // Add click handlers to navigation buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find all buttons
+      const buttons = document.querySelectorAll('.master-primary-button, .master-secondary-button');
+
+      buttons.forEach(button => {
+        const buttonText = button.querySelector('.button-text');
+        if (buttonText) {
+          const text = buttonText.textContent.trim();
+
+          // Add click handler based on button text
+          if (text === 'Creative Studio') {
+            button.style.cursor = 'pointer';
+            button.addEventListener('click', function() {
+              window.location.href = '/design';
+            });
+          } else if (text === 'Digital Marketing Studio') {
+            button.style.cursor = 'pointer';
+            button.addEventListener('click', function() {
+              window.location.href = '/marketing';
+            });
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
