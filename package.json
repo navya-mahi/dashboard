@@ -4,16 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
     "start": "node server.js",
-    "deploy": "gcloud run deploy dashboard-app --source . --region=asia-south1 --project=mavenai-prod --allow-unauthenticated"
+    "deploy": "docker build -t asia-south1-docker.pkg.dev/mavenai-stage/cloud-run-source-deploy/dashboard-app:latest . && docker push asia-south1-docker.pkg.dev/mavenai-stage/cloud-run-source-deploy/dashboard-app:latest && gcloud run deploy dashboard-app --image=asia-south1-docker.pkg.dev/mavenai-stage/cloud-run-source-deploy/dashboard-app:latest --region=asia-south1 --project=mavenai-stage --allow-unauthenticated"
   },
   "dependencies": {
     "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
   }
 }

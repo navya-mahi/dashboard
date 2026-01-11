@@ -7,14 +7,30 @@ WORKDIR /app
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --production=false
+# Install only production dependencies (express)
+RUN npm install --production
 
-# Copy rest of the source
-COPY . .
+# Copy the static HTML dashboard files
+COPY index.html ./
+COPY Overview ./Overview/
+COPY Connectors ./Connectors/
+COPY DashboardAttribution ./DashboardAttribution/
+COPY DashboardPaid ./DashboardPaid/
+COPY DashboardPaidCampaigns ./DashboardPaidCampaigns/
+COPY AnaluseCampaign ./AnaluseCampaign/
 
-# Build the Vite app
-RUN npm run build
+# Copy server file
+COPY server.js ./
+
+# Create dist directory and copy files (server expects them in dist/)
+RUN mkdir -p dist && \
+    cp index.html dist/ && \
+    cp -r Overview dist/ && \
+    cp -r Connectors dist/ && \
+    cp -r DashboardAttribution dist/ && \
+    cp -r DashboardPaid dist/ && \
+    cp -r DashboardPaidCampaigns dist/ && \
+    cp -r AnaluseCampaign dist/
 
 # Cloud Run listens on 8080
 EXPOSE 8080
