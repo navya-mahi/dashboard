@@ -1,0 +1,50 @@
+# ---------------------------
+# Node / Vite
+# ---------------------------
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------------------------
+# Environment variables
+# ---------------------------
+.env
+.env.local
+.env.*.local
+
+# ---------------------------
+# Python virtual environment
+# ---------------------------
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+
+# ---------------------------
+# OS / Editor junk
+# ---------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ---------------------------
+# Build & cache artifacts
+# ---------------------------
+.cache/
+.tmp/
+temp/
+
+# ---------------------------
+# Optional: Generated assets
+# (ONLY ignore if auto-generated)
+# ---------------------------
+# assets/
