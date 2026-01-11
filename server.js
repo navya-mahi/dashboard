@@ -6,6 +6,12 @@ const __dirname = path.resolve();
 
 app.use("/dashboard", express.static(path.join(__dirname, "dist")));
 
+// Serve index.html for exact /dashboard (no trailing slash)
+app.get("/dashboard", (_, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+// Serve index.html for any sub-paths of /dashboard (SPA routing)
 app.get("/dashboard/*", (_, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
