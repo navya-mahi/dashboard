@@ -446,8 +446,31 @@
           </div>
         </div>
       </div>
-      <div class="ellipse-808"></div>
-      <img class="layer-1" src="layer-10.svg" />
+      <div class="ellipse-808" id="chatbot-trigger-campaigns" style="cursor: pointer;"></div>
+      <img class="layer-1" src="layer-10.svg" style="pointer-events: none;" />
+
+      <div class="chatbot-window-v2" id="chatbot-window-campaigns">
+        <button class="chatbot-close-v2" id="chatbot-close-campaigns">×</button>
+        <img src="/dashboard/DashboardPaidCampaigns/chatbot_campaigns_v2.png" alt="Chatbot" class="chatbot-image-v2" />
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const trigger = document.getElementById('chatbot-trigger-campaigns');
+          const window = document.getElementById('chatbot-window-campaigns');
+          const closeBtn = document.getElementById('chatbot-close-campaigns');
+
+          if (trigger && window && closeBtn) {
+            trigger.addEventListener('click', function () {
+              window.classList.toggle('active');
+            });
+            closeBtn.addEventListener('click', function (e) {
+              e.stopPropagation();
+              window.classList.remove('active');
+            });
+          }
+        });
+      </script>
       <div class="sidebar">
         <div class="background"></div>
         <div class="divider"></div>

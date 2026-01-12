@@ -410,8 +410,7 @@
           <img class="arrow-right" src="arrow-right0.svg" />
         </div>
       </div>
-      <div class="ellipse-808"></div>
-      <img class="layer-1" src="layer-10.svg" />
+
       <div class="sidebar">
         <div class="background"></div>
         <div class="divider"></div>
@@ -566,6 +565,16 @@
     </div>
   </div>
 
+  <div class="chatbot-trigger" id="chatbotTrigger">
+    <div class="ellipse-808"></div>
+    <img class="layer-1" src="/dashboard/DashboardPaid/layer-10.svg" />
+  </div>
+
+  <div class="chatbot-window" id="chatbotWindow">
+    <button class="chatbot-close-btn" id="chatbotClose">×</button>
+    <img src="/dashboard/DashboardPaid/chatbot_preview.png" alt="Chatbot" class="chatbot-image-content" />
+  </div>
+
   <script>
     // Helper function to check if user is authenticated
     function isAuthenticated() {
@@ -619,6 +628,22 @@
           }
         }
       });
+
+      // Chatbot Functionality
+      const chatbotTrigger = document.getElementById('chatbotTrigger');
+      const chatbotWindow = document.getElementById('chatbotWindow');
+      const chatbotClose = document.getElementById('chatbotClose');
+
+      if (chatbotTrigger && chatbotWindow && chatbotClose) {
+        chatbotTrigger.addEventListener('click', () => {
+          chatbotWindow.classList.toggle('active');
+        });
+
+        chatbotClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          chatbotWindow.classList.remove('active');
+        });
+      }
     });
   </script>
 </body>

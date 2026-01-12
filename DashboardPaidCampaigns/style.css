@@ -2412,6 +2412,56 @@
   overflow: visible;
 }
 
+.chatbot-window-v2 {
+  position: absolute;
+  left: 1181px;
+  /* Adjusted to keep it aligned as it's narrower */
+  top: 320px;
+  /* Moved down from 196px to reduce vertical stretch */
+  width: 320px;
+  /* Reduced from 380px to scale down height */
+  max-height: 85vh;
+  overflow-y: auto;
+  z-index: 2000;
+  display: none;
+  background: transparent;
+  pointer-events: auto;
+}
+
+.chatbot-window-v2.active {
+  display: block;
+}
+
+.chatbot-image-v2 {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.chatbot-close-v2 {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.chatbot-close-v2:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 .sidebar {
   width: 300px;
   height: 1200px;
