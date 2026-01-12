@@ -641,13 +641,13 @@
 }
 
 .frame-1000005733 {
-  width: 64.41%;
-  height: 83.2%;
+  width: 41.41%;
+  height: 49.2%;
   position: absolute;
   right: 17.7%;
   left: 17.89%;
   bottom: -12.75%;
-  top: 29.55%;
+  top: 26.55%;
 }
 
 .group-1000004179 {
@@ -717,7 +717,7 @@
   position: absolute;
   left: 50%;
   translate: -50%;
-  top: 48.61px;
+  top: 35px;
 }
 
 ._80 {
@@ -731,7 +731,7 @@
 }
 
 .transactions {
-  color: var(--neutral-colors-500, #7e89ac);
+  color: var(--neutral-colors-500, #d5d6db);
   text-align: left;
   font-family: "WorkSans-Regular", sans-serif;
   font-size: 12.277334213256836px;

@@ -307,7 +307,61 @@
     </div>
 
   </div>
+  <script>
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      // Check for auth_token cookie
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'auth_token' && value) {
+          return true;
+        }
+      }
+      return false;
+    }
 
+    // Check authentication on page load and redirect if logged in
+    if (isAuthenticated()) {
+      window.location.href = '/design';
+    }
+
+    // Add click handlers to navigation buttons
+    document.addEventListener('DOMContentLoaded', function () {
+      // Find all buttons
+      const buttons = document.querySelectorAll('.master-primary-button, .master-secondary-button');
+
+      buttons.forEach(button => {
+        const buttonText = button.querySelector('.button-text');
+        if (buttonText) {
+          const text = buttonText.textContent.trim();
+
+          // Add click handler based on button text
+          if (text === 'Creative Studio') {
+            button.style.cursor = 'pointer';
+            button.addEventListener('click', function () {
+              // Check authentication before navigating
+              if (isAuthenticated()) {
+                window.location.href = '/design';
+              } else {
+                window.location.href = '/signin';
+              }
+            });
+          } else if (text === 'Digital Marketing Studio') {
+            button.style.cursor = 'pointer';
+            button.addEventListener('click', function () {
+              // Check authentication before navigating
+              if (isAuthenticated()) {
+                window.location.href = '/marketing';
+              } else {
+                window.location.href = '/signin';
+              }
+            });
+          }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
